@@ -10,15 +10,26 @@ public class Driver {
 //  Database credentials
    static final String USER = "root";
    static final String PASS = "52Shivam@";
-   Connection con;
+    private Connection con;
    
-   public Connection getConnection() throws ClassNotFoundException, SQLException
+   public Driver() throws ClassNotFoundException, SQLException
    {
 	   Class.forName(JDBC_DRIVER);
 	   con = DriverManager.getConnection(DB_URL, USER, PASS);
 	   System.out.println("Connection Established...");
-	   return con;
+	  
    }
    
+   public Connection getDatabaseConnection() {
+	   return con;
+   }
+   public void close(){
+       try {
+           con.close();
+       } catch (SQLException e) {
+           e.printStackTrace();
+       }
 
+   }
+   
 }
