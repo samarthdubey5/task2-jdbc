@@ -28,6 +28,7 @@ public class Driver {
            con.close();
        } catch (SQLException e) {
            e.printStackTrace();
+	       
        }
 
    }
